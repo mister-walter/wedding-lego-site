@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+<h2>Sets</h2>
+{% set difficulty_one = get_taxonomy_term(kind="difficulty", term="1") %}
+{% set difficulty_two = get_taxonomy_term(kind="difficulty", term="2") %}
+{% set difficulty_three = get_taxonomy_term(kind="difficulty", term="3") %}
+
+<h3>Most straightforward</h3>
+<div class="d-flex text-center">
+    {% for set in difficulty_one.pages %}
+    <div class="card m-2" style="width: 18rem;">
+        <img src="images/{{set.extra.image}}" class="card-img-top">
+            <div class="card-body">
+            <a href="{{ get_url(path="instructions/"~set.extra.instructions)}}" class="card-title">{{set.title}}</a>
+            <!-- <a href="{{ set.permalink | safe }}" class="card-title">{{set.title}}</a> -->
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h3>Medium complexity</h3>
+<div class="d-flex text-center">
+    {% for set in difficulty_two.pages %}
+    <div class="card m-2" style="width: 18rem;">
+        <img src="images/{{set.extra.image}}" class="card-img-top">
+            <div class="card-body">
+            <a href="{{ get_url(path="instructions/"~set.extra.instructions)}}" class="card-title">{{set.title}}</a>
+            <!-- <a href="{{ set.permalink | safe }}" class="card-title">{{set.title}}</a> -->
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<h3>High complexity</h3>
+<div class="d-flex text-center">
+    {% for set in difficulty_three.pages %}
+    <div class="card m-2" style="width: 18rem;">
+        <img src="images/{{set.extra.image}}" class="card-img-top">
+            <div class="card-body">
+            <a href="{{ get_url(path="instructions/"~set.extra.instructions)}}" class="card-title">{{set.title}}</a>
+            <!-- <a href="{{ set.permalink | safe }}" class="card-title">{{set.title}}</a> -->
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</section>
+
+{% endblock content %}

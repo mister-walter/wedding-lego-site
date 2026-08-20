@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{page.title}}</h2>
+<a href="{{get_url(path="instructions/"~page.extra.instructions)}}">Build instructions</a>
+{% endblock content %}
